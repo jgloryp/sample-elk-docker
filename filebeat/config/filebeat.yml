@@ -1,0 +1,21 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /app/logs/*-debug.log
+    fields:
+      index_name: oauth-api
+      env: production
+      level: debug
+
+  - type: log
+    enabled: true
+    paths:
+      - /home/ec2-user/dev/test/logs/*-debug.log
+    fields:
+      index_name: v2solution-api
+      env: test
+      level: debug
+
+output.logstash:
+  hosts: ["logstash:5000"]
