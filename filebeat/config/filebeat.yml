@@ -2,7 +2,7 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - /app/logs/*-debug.log
+      - /home/azureuser/logs/oauth-api-production/*-debug.log
     fields:
       index_name: oauth-api
       env: production
@@ -11,11 +11,11 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - /home/ec2-user/dev/test/logs/*-debug.log
+      - /home/azureuser/logs/oauth-api-test/*-debug.log
     fields:
-      index_name: v2solution-api
+      index_name: oauth-api
       env: test
       level: debug
 
 output.logstash:
-  hosts: ["logstash:5000"]
+  hosts: ["hnmcorp-legacy-elk.koreacentral.cloudapp.azure.com:5000"]
